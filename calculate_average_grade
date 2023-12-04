@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main() {
+  // Create an integer variable that will store the number we get from the user
+print:  
+  int myNum,i;
+  float grades=0,average=0,sum=0;
+  char ch;
+
+  // Ask the user to type a number
+  printf("How many grades you enter:"); 
+
+  // Get and save the number the user types
+   scanf("%d", &myNum);
+  
+    for (i = 1; i <= myNum; i++){ 
+     printf("Enter Grades# %d:",i); 
+     scanf ("%f", &grades);
+     if(grades<1){
+         printf ("The grade entered is out of range. Please enter a grade between 1.0 to 5.0 only\n");
+         printf("\n\t\t\t\t\tPlease enter YES or NO.\n");
+          goto again;
+     }else if(grades>5){
+         printf ("The grade entered is out of range. Please enter a grade between 1.0 to 5.0 only\n");
+         printf("\n\t\t\t\t\tPlease enter YES or NO.\n");
+         goto again;
+     }else if(grades>=1 && grades <=5){
+         sum = sum+grades;
+         average = sum/myNum;
+         
+     }else{
+         printf ("Please input proper range"); 
+         printf("\n\t\t\t\t\tPlease enter Yes or NO.\n");
+        goto again;
+     }
+    }
+    printf("The average of all the numbers entered is = %.2f\n",average); 
+again:
+    printf ("Do you want to try again (Y/N): ");
+    scanf (" %c", &ch);
+
+    if(ch == 'y' || ch == 'Y'){
+        goto print;
+    }
+    else if(ch == 'n' || ch == 'N'){
+        printf("bye <3 <3 <3");
+        return 0;
+    }
+    else{
+        printf("\n\t\t\t\t\tPlease enter YES or NO.\n");
+        goto again;
+    }
+ 
+}
+
